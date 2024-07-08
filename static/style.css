@@ -1,0 +1,41 @@
+.page-title{
+    font-size: 30px;
+    color: white;
+    text-shadow: 3px 3px 0 orange, 
+                -3px 3px 0 orange, 
+                -3px -3px 0 orange,
+                3px -3px 0 orange;
+    margin: 10px;
+}
+
+#result_area{
+    display:grid;
+    gap:15px;
+    margin: 20px;
+}
+
+@media only screen and (max-width:700px){
+    #result_area {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media only screen and (min-width:700px) and (max-width:1200px) {
+    #result_area {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media only screen and (min-width:1200px) {
+    #result_area {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+.card {
+    background-color: white;
+    border-radius: 5px;
+    padding:10px;
+    text-align: center;
+}
+

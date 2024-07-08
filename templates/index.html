@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name = "viewport" content = "width = device-width">
+    <title>Scratch Search</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body style="background-color: #eee; color: #333;">
+    <h1 class="page-title">Scratch Search</h1>
+
+    <div id="search_area">
+        <form>
+            ここらへんにいい感じのスクロールバーとか入れてブロック数をフィルターかけたいわね
+        </form>
+    </div>
+
+    <div id="result_area">
+        {% for project in test_data %}
+        <div class="card">
+            <img src="{{project['thumbnail_URL']}}" style="width: 300px;margin:10px auto;border-radius:5px;"/>
+            <h2 style="font-size: 20px;">{{ project["title"] }}</h2>
+            <div>by {{project["user_name"]}}</div>
+            <div style="padding: 5px;">
+                <div style="display: inline-block; border: 3px solid lightgray;padding: 5px; border-radius: 15px;">30ブロック</div>
+            </div>
+        </div>
+        {%endfor%}
+    </div>
+</body>
+</html>
