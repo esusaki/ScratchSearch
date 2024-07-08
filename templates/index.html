@@ -19,9 +19,9 @@
         {% for project in test_data %}
         <div class="card">
             <img src="{{project['thumbnail_URL']}}" style="width: 300px;margin:10px auto;border-radius:5px;"/>
-            <h2 style="font-size: 20px;text-align: center;">{{ project["title"] }}</h2>
-            <div style="text-align: center;">by {{project["user_name"]}}</div>
-            <div style="text-align: center;padding: 5px;">
+            <h2 style="font-size: 20px;">{{ project["title"] }}</h2>
+            <div>by {{project["user_name"]}}</div>
+            <div style="padding: 5px;">
                 <div style="display: inline-block; border: 3px solid lightgray;padding: 5px; border-radius: 15px;">30ブロック</div>
             </div>
         </div>
