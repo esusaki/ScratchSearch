@@ -2,3 +2,6 @@ bin/
 lib/
 pyvenv.cfg
 __pycache__
+
+*.sb3
+*.json
