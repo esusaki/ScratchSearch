@@ -56,7 +56,6 @@ def download_sb3(project_id):
                 else:
                     time.sleep(5)
 
-    driver.quit()
 
     # ダウンロードできたらファイルの名前を返す, できなかったらFalseを返す
 
@@ -67,3 +66,5 @@ def download_sb3(project_id):
         return downloaded_filename
     else:
         return False
+    
+#driver.quit()

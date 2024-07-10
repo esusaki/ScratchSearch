@@ -9,23 +9,66 @@
 <body style="background-color: #eee; color: #333;">
     <h1 class="page-title">Scratch Search</h1>
 
-    <div id="search_area">
-        <form>
-            ここらへんにいい感じのスクロールバーとか入れてブロック数をフィルターかけたいわね
+    <div id="search_area" style="padding: 10px;">
+        <form action="/search">
+            <div style="margin-bottom: 15px;">
+                <label for="blocks-max-input"><span id="show-blocks-max-input"></span></label>
+                <input type="range" id="blocks-max-input" name="blocks-max" style="width: 100%" min="10" max="500" step="10" value="{{blocks_max}}">
+            </div>
+            <div style="margin-bottom: 20px;">
+                {% if no_clone == 'on' %}
+                    <label class="check-label"><input type="checkbox" style="display: none;" name="no-clone" checked><span>クローンなし</span></label>
+                {% else %}
+                    <label class="check-label"><input type="checkbox" style="display: none;" name="no-clone"><span>クローンなし</span></label>
+                {%endif%}
+
+                {% if no_teigi == 'on' %}
+                    <label class="check-label"><input type="checkbox" style="display: none;" name="no-teigi" checked><span>ていぎブロックなし</span></label>
+                {% else %}
+                    <label class="check-label"><input type="checkbox" style="display: none;" name="no-teigi"><span>ていぎブロックなし</span></label>
+                {%endif%}
+
+            </div>
+            <input type="submit" value="検索" style="background-color: orange;color: white;border:none;border-radius: 10px; padding: 10px; width: 100%; font-size: 20px; border-bottom: 5px solid darkorange;"/>
         </form>
     </div>
 
+    {{hits}}件
+
     <div id="result_area">
+
         {% for project in test_data %}
+        
         <div class="card">
-            <img src="{{project['thumbnail_URL']}}" style="width: 300px;margin:10px auto;border-radius:5px;"/>
+            <a href="{{project['project_URL']}}" target="_blank">
+                <img src="{{project['thumbnail_URL']}}" style="width: 300px;margin:10px auto;border-radius:5px;"/>
+            </a>
             <h2 style="font-size: 20px;">{{ project["title"] }}</h2>
             <div>by {{project["user_name"]}}</div>
             <div style="padding: 5px;">
-                <div style="display: inline-block; border: 3px solid lightgray;padding: 5px; border-radius: 15px;">30ブロック</div>
+                <div style="display: inline-block; border: 3px solid lightgray;padding: 5px; border-radius: 15px;"> {{project["blocks_count"]}}ブロック</div>
+
+                <div style="display: inline-block; border: 3px solid lightgray;padding: 5px; border-radius: 15px;">へんすう {{project["variables_count"]}}コ</div>
             </div>
+
         </div>
         {%endfor%}
     </div>
+
+
+    <script>
+        const blocks_max_input = document.getElementById("blocks-max-input");
+        const show_blocks_max_input = document.getElementById("show-blocks-max-input");
+
+        function updateSliderValue(){
+            show_blocks_max_input.innerText = blocks_max_input.value + "ブロックまで";
+        }
+
+        blocks_max_input.addEventListener("input", updateSliderValue);
+
+        updateSliderValue();
+
+    </script>
+
 </body>
 </html>
