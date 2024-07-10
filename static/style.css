@@ -39,3 +39,18 @@
     text-align: center;
 }
 
+
+.check-label span{
+    color: #555;
+    padding: 15px;
+    border-radius: 20px;
+}
+
+.check-label :hover {
+    background: #fc9;
+}
+
+.check-label input:checked + span{
+    background-color: #fc9;
+    color:#111;
+}
