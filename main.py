@@ -6,7 +6,7 @@ from data import search_data
 
 @myapp.route("/")
 def hello():
-    return render_template("index.html", test_data = search_data(blocks_max=9999999, no_clone=False), hits = 999999)
+    return redirect("/search?blocks-max=150&no-teigi=on")
 
 @myapp.route("/search")
 def searchresult():
