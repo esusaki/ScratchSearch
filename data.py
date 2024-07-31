@@ -48,7 +48,7 @@ def search_data(blocks_max, no_clone, no_teigi):
                         "contains_clone":contains_clone, 
                         "contains_procedure":contains_procedure, }
 
-        if loves >= 10 and  blocks_count > 20 and flag:
+        if loves >= 10 and  blocks_count > 20 and flag and result[2] != "ScratchCat":
             result_data.append(project_dict)
 
     return result_data
